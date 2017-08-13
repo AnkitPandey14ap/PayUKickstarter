@@ -1,0 +1,48 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/menu"
+        android:orderInCategory="0"
+        app:showAsAction="always"
+        android:icon="@mipmap/generic_sorting_32">
+        <menu>
+            <item
+                android:id="@+id/menuSortAlphabet"
+                android:title="Sort by Alphabetic" />
+            <item
+                android:id="@+id/menuSortCreator"
+                android:title="Sort by Creator" />
+            <item
+                android:id="@+id/menuSortAmntPledged"
+                android:title="Sort by amount pledged" />
+            <item
+                android:id="@+id/menuSortBackers"
+                android:title="Sort by Backers" />
+            <item
+                android:id="@+id/menuSortCountry"
+                android:title="Sort by Country" />
+            <item
+                android:id="@+id/menuSortLocation"
+                android:title="Sort by location" />
+            <item
+                android:id="@+id/menuSortType"
+                android:title="Sort by Type" />
+        </menu>
+    </item>
+    <item
+        android:id="@+id/filter"
+        android:orderInCategory="0"
+        app:showAsAction="always"
+        android:icon="@mipmap/filled_filter">
+        <menu>
+            <item
+                android:id="@+id/filterbyCountry"
+                android:title="Filter by Country" />
+            <item
+                android:id="@+id/filterbypledge"
+                android:title="Filter by pledge" />
+        </menu>
+    </item>
+
+</menu>
+
