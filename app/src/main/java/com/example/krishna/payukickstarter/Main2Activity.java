@@ -121,20 +121,20 @@ public class Main2Activity extends AppCompatActivity {
                     Intent intent = new Intent();
                     intent.setAction(Intent.ACTION_VIEW);
                     intent.addCategory(Intent.CATEGORY_BROWSABLE);
-                    intent.setData(Uri.parse("https://www.kickstarter.com/"+MainActivity.list.get(i).getUrl()));
+                    intent.setData(Uri.parse("https://www.kickstarter.com/"+MainActivity.tempList.get(i).getUrl()));
                     startActivity(intent);
 
                 }
             });
 
 
-            titleTextView.setText(MainActivity.list.get(i).getTitle());
+            titleTextView.setText(MainActivity.tempList.get(i).getTitle());
 
-            blurb.setText(MainActivity.list.get(i).getBlurb());
-            byTextView.setText(MainActivity.list.get(i).getBy());
-            backersTextView.setText(MainActivity.list.get(i).getNumBackers()+" backers pledged"+ MainActivity.list.get(i).getCurrency()+" "+ MainActivity.list.get(i).getAmtPledged() +"to help bring this project to life.");
-            pledgedTextView.setText(MainActivity.list.get(i).getCurrency()+" "+MainActivity.list.get(i).getAmtPledged());
-            locationTextView.setText(MainActivity.list.get(i).getLocation()+","+MainActivity.list.get(i).getCountry());
+            blurb.setText(MainActivity.tempList.get(i).getBlurb());
+            byTextView.setText(MainActivity.tempList.get(i).getBy());
+            backersTextView.setText(MainActivity.tempList.get(i).getNumBackers()+" backers pledged"+ MainActivity.tempList.get(i).getCurrency()+" "+ MainActivity.list.get(i).getAmtPledged() +"to help bring this project to life.");
+            pledgedTextView.setText(MainActivity.tempList.get(i).getCurrency()+" "+MainActivity.tempList.get(i).getAmtPledged());
+            locationTextView.setText(MainActivity.tempList.get(i).getLocation()+","+MainActivity.tempList.get(i).getCountry());
 
             return rootView;
         }
@@ -158,7 +158,8 @@ public class Main2Activity extends AppCompatActivity {
         @Override
         public int getCount() {
             // Show 3 total pages.
-            return MainActivity.list.size();
+//            return MainActivity.list.size();
+            return MainActivity.tempList.size();
         }
 
         @Override

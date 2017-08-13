@@ -13,8 +13,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ListAdapter;
 import android.widget.ListView;
+import android.widget.SearchView;
 import android.widget.Toast;
 
 import com.example.krishna.payukickstarter.AdapterPackage.MyCustomAdapter;
@@ -46,12 +48,35 @@ public class MainActivity extends AppCompatActivity {
     private ListView listView;
     private MyCustomAdapter mySessionAdapter;
     ProgressDialog progressDialog;
-    ArrayList<ProjectDetails> tempList = new ArrayList<>();
+    public static ArrayList<ProjectDetails> tempList = new ArrayList<>();
 
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_main, menu);
+
+        MenuItem item = menu.findItem(R.id.menuSearch);
+        SearchView searchView = (SearchView) item.getActionView();
+
+
+
+
+
+
+
+
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+//                mySessionAdapter.getFilter().filter(newText);
+                return false;
+            }
+        });
 
         return true;
     }
@@ -155,7 +180,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         progressDialog = new ProgressDialog(MainActivity.this);
-        progressDialog.setMessage("saving data...");
+        progressDialog.setMessage("Fetching data...");
         progressDialog.show();
 
         FetchData fetchData = new FetchData();
@@ -173,12 +198,12 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        Button loadButton = (Button) findViewById(R.id.loadButton);
+        ImageButton loadButton = (ImageButton) findViewById(R.id.loadButton);
         loadButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                Toast.makeText(MainActivity.this, "Clicked", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(MainActivity.this, "clicked", Toast.LENGTH_SHORT).show();
                 //get the size of the tempList and save it in size variable
                 int size = tempList.size() + 10;
         //clear the tempList arraylist and readd the data otherwise sorting will not work properly fir the listView

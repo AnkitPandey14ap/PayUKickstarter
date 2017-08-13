@@ -72,4 +72,7 @@ public class MyCustomAdapter extends BaseAdapter implements ListAdapter {
 
         return view;
     }
+
+
+
 }
