@@ -34,7 +34,6 @@ public class MyCustomAdapter extends BaseAdapter implements ListAdapter {
     public int getCount() {
 
         return list.size();
-//        return 10;
     }
 
     @Override
